@@ -147,10 +147,21 @@ class Homepage extends Component {
                   </Col>
                 ))}
               </Row>
-           
             </div>
           )}
-       
+          <div className="iframealign">
+            {" "}
+            <iframe
+              width="560"
+              height="315"
+              className="iframesize"
+              src="https://www.youtube.com/embed/J_UzrzU7eak"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
 
           <div className="leftalignwhy mt-5">
             <h2 className=" section-title">Why Us</h2>
@@ -160,7 +171,10 @@ class Homepage extends Component {
               <div className="whycard">
                 <div className="whyimgposition">
                   <img
-                    src={require("../../../../static/Images/why-us/Decentralized.svg").default}
+                    src={
+                      require("../../../../static/Images/why-us/Decentralized.svg")
+                        .default
+                    }
                     className="whysectionimg"
                   />
                   <h3 className="whyustitle ">Decentralized</h3>
@@ -177,7 +191,10 @@ class Homepage extends Component {
               <div className="whycard">
                 <div className="whyimgposition">
                   <img
-                    src={require("../../../../static/Images/why-us/Transparent.svg").default}
+                    src={
+                      require("../../../../static/Images/why-us/Transparent.svg")
+                        .default
+                    }
                     className="whysectionimg imgwidth"
                   />
                   <h3 className="whyustitle ">Transparent</h3>
@@ -194,7 +211,10 @@ class Homepage extends Component {
               <div className="whycard">
                 <div className="whyimgposition">
                   <img
-                    src={require("../../../../static/Images/why-us/Automated 2.svg").default}
+                    src={
+                      require("../../../../static/Images/why-us/Automated 2.svg")
+                        .default
+                    }
                     className="whysectionimg"
                   />
                   <h3 className="whyustitle ">Automated</h3>
@@ -210,7 +230,10 @@ class Homepage extends Component {
               <div className="whycard">
                 <div className="whyimgposition">
                   <img
-                    src={require("../../../../static/Images/why-us/Flexible.svg").default}
+                    src={
+                      require("../../../../static/Images/why-us/Flexible.svg")
+                        .default
+                    }
                     className="whysectionimg"
                   />
                   <h3 className="whyustitle ">Flexible</h3>
@@ -227,7 +250,10 @@ class Homepage extends Component {
               <div className="whycard">
                 <div className="whyimgposition">
                   <img
-                    src={require("../../../../static/Images/why-us/User-friendly.svg").default}
+                    src={
+                      require("../../../../static/Images/why-us/User-friendly.svg")
+                        .default
+                    }
                     className="whysectionimg imgwidth"
                   />
                   <h3 className="whyustitle ">User-friendly</h3>
@@ -242,7 +268,10 @@ class Homepage extends Component {
               <div className="whycard">
                 <div className="whyimgposition">
                   <img
-                    src={require("../../../../static/Images/why-us/Unbaised 1.svg").default}
+                    src={
+                      require("../../../../static/Images/why-us/Unbaised 1.svg")
+                        .default
+                    }
                     className="whysectionimg"
                   />
                   <h3 className="whyustitle ">Unbiased</h3>

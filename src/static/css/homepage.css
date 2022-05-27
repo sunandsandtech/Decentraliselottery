@@ -14,6 +14,9 @@
   line-height: 34px;
 }
 
+.iframealign{
+  text-align: center;
+}
 /* .Logoorg:hover{
  font-weight: 500;
  text-decoration: none;
@@ -21,7 +24,13 @@
 .textstyle {
   text-decoration: none;
 }
+@media (max-width: 650px) {
 
+  .iframesize{
+  width: 100%;
+  height: 850;
+  }
+  }
 @media (max-width: 991px) {
   .navbar-expand-lg .navbar-nav {
     flex-direction: column;
