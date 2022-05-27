@@ -1,0 +1,104 @@
+#normal-lotteries .card {
+  border: none;
+  margin-bottom: 37px;
+}
+#normal-lotteries .outer-div {
+  border-left: 6px solid var(--redBorder);
+  padding: 6px 10px;
+  background: var(--lightPink);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+#normal-lotteries .inner-div {
+  background: var(--white);
+  display: flex;
+  justify-content: space-between;
+}
+#normal-lotteries .left-div {
+  width: 100%;
+  text-align: center;
+}
+#normal-lotteries .right-div {
+}
+#normal-lotteries .lottery-text {
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--darkGrey);
+  font-family: "Mulish", sans-serif;
+  margin-top: 30px;
+}
+#normal-lotteries .sub-text {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--darkGrey);
+  font-family: "Mulish", sans-serif;
+}
+
+#normal-lotteries .amount {
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--darkGrey);
+  font-family: "Mulish", sans-serif;
+  margin-top: 0px;
+  margin-left: 7px;
+  white-space: nowrap;
+}
+
+#normal-lotteries .value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#normal-lotteries .playbutton {
+  width: 144px;
+  height: 41px;
+  background: linear-gradient(
+    45.74deg,
+    var(--redBorder) -27.41%,
+    var(--lightRed) 121.65%
+  );
+  border-radius: 15px;
+  border: none;
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--white);
+  margin-bottom: 15px;
+  margin-top: 18px;
+  outline: none;
+}
+
+#normal-lotteries .count {
+  margin-right: 6px;
+}
+#normal-lotteries .count-2 {
+  width: 61px;
+  height: 66px;
+  background: var(--redBorder);
+  border-radius: 0px 0px 39px 39px;
+  position: relative;
+  bottom: 117px;
+}
+#normal-lotteries .count-1 {
+  width: 61px;
+  height: 117px;
+  background: var(--lightRed);
+  border-radius: 0px 0px 39px 39px;
+}
+#normal-lotteries .count-text {
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  color: var(--white);
+  padding-top: 22px;
+  text-align: center;
+}
+#normal-lotteries .count2 {
+  padding-top: 74px;
+}
+.dataimg {
+  width: 150px;
+  margin-top: -50px;
+}

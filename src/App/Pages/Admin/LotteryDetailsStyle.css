@@ -1,0 +1,100 @@
+.outer-div {
+  border-left: 6px solid var(--redBorder);
+  padding: 12px 14px 18px 18px;
+  background: var(--lightPink);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.inner-div {
+  background: var(--white);
+}
+
+.detail {
+  text-align: left;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.detail1 {
+  text-align: left;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: left;
+}
+
+.labeltext {
+  color: var(--black);
+  font-weight: 600;
+  font-size: 20px;
+  text-align: left;
+  font-family: "Mulish", sans-serif;
+  white-space: nowrap;
+}
+
+.valuetext {
+  color: var(--darkGrey);
+  font-weight: 400;
+  font-size: 20px;
+  font-family: "Mulish", sans-serif;
+  overflow-wrap: break-word;
+  text-align: right;
+}
+.winner1 {
+  margin-top: 30px;
+  width: 100%;
+  overflow-wrap: break-word;
+  margin-bottom: 10px;
+}
+.heading-border {
+  border-bottom: 14px solid var(--lightPink);
+}
+
+.table {
+  margin-bottom: 0px;
+}
+
+.valuetext1 {
+  color: var(--darkGrey);
+  font-weight: 400;
+  font-size: 20px;
+  font-family: "Mulish", sans-serif;
+}
+.number {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.textleft {
+  text-align: left;
+}
+.addresstext {
+  color: var(--darkGrey);
+  font-weight: 400;
+  font-size: 20px;
+  font-family: "Mulish", sans-serif;
+  overflow-wrap: break-word;
+  text-align: left;
+  width: 75%;
+  margin-left: 10px;
+}
+.marginspace {
+  margin-top: 50px;
+}
+.dataimg {
+  width: 150px;
+  margin-top: -50px;
+}
+@media screen and (max-width: 1200px) {
+  .valuetext {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 520px) {
+  .valuetext {
+    width: 60%;
+  }
+}

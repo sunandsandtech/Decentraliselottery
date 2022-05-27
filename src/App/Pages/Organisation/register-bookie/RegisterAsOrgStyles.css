@@ -1,0 +1,49 @@
+#RGOrg .createbox {
+  padding: 20px;
+  max-width: 860px;
+  padding-bottom: 0px;
+  border-left: 5px red solid;
+  background-color: #ffe7e7;
+  margin: auto;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+#RGOrg .createlabel {
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 12px;
+}
+
+#RGOrg .createheader {
+  color: #353a54;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+#RGOrg .createfield {
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 0px !important;
+  margin-bottom: 15px;
+  border: none !important;
+  width: 100% !important;
+  height: 40px;
+}
+#RGOrg .createfield .react-datetime-picker__wrapper {
+  border: none !important;
+}
+#RGOrg .signupbtn {
+  width: 144px !important;
+  margin: 0px auto 20px auto;
+}
+#RGOrg .invalid-feedback {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 14px;
+  color: #dc3545;
+  line-height: 0px;
+}

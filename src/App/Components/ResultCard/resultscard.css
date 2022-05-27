@@ -1,0 +1,57 @@
+.container{
+    margin: auto;
+}
+.result-item{
+    border: 10px solid #FFE7E7;
+    text-align: center;
+    border-radius: 0px;
+    margin: -1px 0 !important;
+    box-shadow:none !important;
+  
+}
+
+.mycard{
+
+    box-shadow: 0px 4px 10px rgb(0 0 0 / 25%) !important;
+    border-bottom: 6px solid #DF1024;
+    width: 100%;
+    margin-top: 30px;
+}
+.lotteryid{
+    color: #353A54 !important;
+        font-family: 'Mulish', sans-serif !important;
+        font-style: normal !important;
+        font-weight: 600px !important;
+        font-size: 24px !important;
+        line-height: 30px !important;
+        letter-spacing: 0.2px !important;
+}
+.result-item-header{
+        border-bottom: none;
+        
+}
+.textofresult{
+    font-family: 'Mulish', sans-serif !important;
+        font-style: normal !important;
+        font-weight: 500px !important;
+        font-size: 20px !important;
+        line-height: 25px !important;
+        letter-spacing: 0.2px !important;
+}
+.lotterywinnerclass{
+    font-family: 'Mulish', sans-serif !important;
+    font-style: normal !important;
+    font-weight: 700px !important;
+    font-size: 20px !important;
+    line-height: 25px !important;
+    letter-spacing: 0.2px !important;
+    word-wrap: break-word;
+}
+.drawclass{
+    font-family: 'Mulish', sans-serif !important;
+    font-style: normal !important;
+    font-weight: 400px !important;
+    font-size: 15px !important;
+    line-height: 19px !important;
+    letter-spacing: 0.2px !important;
+}

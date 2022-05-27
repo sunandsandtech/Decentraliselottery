@@ -1,0 +1,166 @@
+.lotterylist {
+  margin-top: 47px;
+}
+.lotterylist .dropdown {
+  margin-right: 18px;
+  margin-bottom: 8px;
+}
+.lotterylist .lotterylist-text {
+  font-weight: 500;
+  font-size: 14px;
+  color: #686868;
+  font-family: "Mulish", sans-serif;
+  margin-right: 28px;
+}
+.lotterylist .btn-secondary {
+  width: 182px;
+  height: 41px;
+  background-color: var(--white) !important;
+  color: var(--darkGrey) !important;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  border: none;
+}
+.lotterylist .btn-secondary:not(:disabled):not(.disabled).active,
+.btn-secondary:not(:disabled):not(.disabled):active,
+.show > .btn-secondary.dropdown-toggle {
+  color: var(--darkGrey) !important;
+  background-color: var(--white) !important;
+  border-color: var(--white) !important;
+}
+.lotterylist .btn-secondary:hover {
+  color: var(--darkGrey) !important;
+  background-color: var(--white) !important;
+  border-color: var(--white) !important;
+}
+.lotterylist .btn-secondary.focus,
+.btn-secondary:focus {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25) !important;
+}
+
+.lotterylist .card {
+  border: none;
+  margin-bottom: 37px;
+  cursor: pointer;
+}
+.lotterylist .outer-div {
+  border-left: 6px solid var(--redBorder);
+  padding: 6px 10px;
+  background: var(--lightPink);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.lotterylist .inner-div {
+  background: var(--white);
+  display: flex;
+  justify-content: space-between;
+}
+.lotterylist .left-div {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0px;
+}
+.lotterylist .right-div {
+}
+.lotterylist .lottery-text {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--darkGrey);
+  font-family: "Mulish", sans-serif;
+}
+.lotterylist .sub-text {
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--darkGrey);
+  font-family: "Mulish", sans-serif;
+}
+
+.lotterylist .amount {
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--darkGrey);
+  font-family: "Mulish", sans-serif;
+  margin-top: 0px;
+  margin-left: 7px;
+  white-space: nowrap;
+}
+
+.lotterylist .value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lotterylist .playbutton {
+  width: 144px;
+  height: 41px;
+  background: linear-gradient(
+    45.74deg,
+    var(--redBorder) -27.41%,
+    var(--lightRed) 121.65%
+  );
+  border-radius: 15px;
+  border: none;
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--white);
+  margin-bottom: 15px;
+  margin-top: 18px;
+  outline: none;
+}
+
+.lotterylist .count {
+  margin-right: 6px;
+}
+.lotterylist .count-2 {
+  width: 61px;
+  height: 66px;
+  background: var(--redBorder);
+  border-radius: 0px 0px 39px 39px;
+  position: relative;
+  bottom: 117px;
+}
+.lotterylist .count-1 {
+  width: 61px;
+  height: 117px;
+  background: var(--lightRed);
+  border-radius: 0px 0px 39px 39px;
+}
+.lotterylist .count-text {
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  color: var(--white);
+  padding-top: 22px;
+  text-align: center;
+}
+.lotterylist .count2 {
+  padding-top: 74px;
+}
+
+.lotterylist .dates-div {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.lotterylist .date-text {
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--darkGrey);
+  width: 100px;
+}
+.dataimg {
+  width: 150px;
+  margin-top: -50px;
+}
+@media (min-width: 991px) and (max-width: 1200px) {
+  .lotterylist .left-div {
+    display: flex;
+    align-items: center;
+    height: 245px;
+    justify-content: center;
+  }
+}

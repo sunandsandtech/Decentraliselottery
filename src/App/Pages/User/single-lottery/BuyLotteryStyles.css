@@ -1,0 +1,86 @@
+#BuyLottery {
+  min-height: 94vh;
+}
+#BuyLottery .outerBox {
+  background-color: var(--lightPink);
+  border-left: 5px solid var(--redBorder);
+  padding: 8px;
+}
+#BuyLottery .innerBox {
+  background-color: var(--white);
+  padding: 40px;
+  min-height: 100px;
+}
+#BuyLottery .emptyLottery {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#BuyLottery .headText {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 0.2px;
+  color: var(--darkGrey);
+}
+#BuyLottery .bigHeading {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 0.2px;
+  color: var(--darkGrey);
+}
+#BuyLottery .numberlist {
+  text-align: center;
+}
+#BuyLottery .dateText {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: 0.2px;
+  color: var(--darkGrey);
+  white-space: nowrap;
+}
+#BuyLottery .dateTextHead {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  color: var(--darkGrey);
+}
+#BuyLottery .numberlist li {
+  display: inline-flex;
+  width: 41px;
+  height: 41px;
+  background: var(--white);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+  color: var(--lightRed);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 0.221053px;
+  cursor: pointer;
+}
+#BuyLottery .myCustomBtn {
+  width: 193px;
+}
+#BuyLottery .numberlist li.active {
+  background-color: var(--lightRed);
+  color: var(--white);
+  box-shadow: 0px 4px 10px #df102577;
+}
+#BuyLottery .margin-tp {
+  margin-top: 50px;
+}
+#BuyLottery .space {
+  margin-left: 5px;
+}
+@media only screen and (max-width: 490px) {
+  #BuyLottery .innerBox {
+    padding: 40px 10px;
+  }
+}

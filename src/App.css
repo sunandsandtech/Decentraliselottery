@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* Colors */
+:root{
+  --darkGrey : #353A54;
+  --lightPink : #FFE7E7;
+  --redBorder : #DF1024;
+  --lightRed: #FF7B88;
+  /* Old variables */
+   --themedark: #fc9d2e;
+  --themelight:#fdd72a;
+  --themebold:#002a33;
+  --themeboldlight:#4d4e4e;
+  --blue:blue;
+  --overlay:#e13e3e85;
+  --white:#fff;
+  --black:#000;
+  --textopacity:0.85;
+  --textfaintopacity:0.75;
+  --green:#4CAF50;
+  --fav-unclick: transparent;
+  --fav-click:red;
+  --overlay1:#fc9d2eb0;
+  --shadow:.07843;
+  --normaltext_title: rgb(64 59 59);
+  --bborder:#ced4da;
+  --bggraylight:#edf2f7;
+  --dark: #002a33;
+  --bg:#fc9d2e ;
+  --light: #feffff;
+  --lightGrey: rgb(130, 134, 138);
+  --accent: #fc9d2e;
+  --cursive: 'Dancing Script', cursive;
+  --font: 'Poppins', sans-serif;
+  --circle:linear-gradient(to right, #fdd72a 0%, #fc9d2e 50%, #fc9d2e 100%)
+}
+
+html, body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+code {
+  font-family: 'Roboto', sans-serif;
+}
+
+.profileImg {
+  position: relative;
+
+  transition: transform 0.2s;
+  width: 100px !important;
+  border: 1px solid;
+  border-color: rgb(124, 121, 121);
+}
+.profileImg:hover {
+  transform: scale(1.1);
+}
+.dats span {
+  margin-left: 0;
+}
+.customSpace {
+  margin-left: 10px;
+}
+.disabledbtn {
+  background: #878787;
+  color: #fff;
+}
+.nav-text a:hover {
+  background-color: #c9c9c9 !important;
+  text-decoration: none !important;
+}
+
+.Homepage,
+.Login,
+.Register .Mytickets .Winner .Help {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+.App {
+  color: black;
+  text-align: center;
+}
+
+.wheelarea.rollspin .sc-gsTCUz.bhdLno .sc-dlfnbm.started-spinning {
+  animation: 4s linear infinite forwards running continueSpin;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+@media (max-width: 992px) {
+  .navbar-collapse {
+    flex-basis: 100%;
+    background: #f8f9fa !important;
+    position: absolute !important;
+    z-index: 10000 !important;
+    flex-grow: 1;
+    align-items: center;
+    padding: 20px !important;
+    top : 100% !important;
+    left : 0px;
+    right : 0px;
+  }
+}
+@media (min-width: 991px) {
+  .navbar {
+    padding: 0.5rem 3rem !important;
+  }
+}
+@media (min-width: 577px) and (max-width: 992px) {
+  .navbar-collapse {
+    top: 30px;
+  }
+}
+.App-link {
+  color: #61dafb;
+}
+.nav-link {
+  display: block;
+  margin: 0px 5px !important;
+  padding: 0.4rem 0.2rem !important;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* @media (max-width: 991px ) and (min-width: 768px) {
+  .navbar-nav{
+    align-items: center;
+  }
+} */

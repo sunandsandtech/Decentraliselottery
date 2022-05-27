@@ -1,0 +1,193 @@
+.navbar {
+  color: #060b26;
+  height: 86px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  /* margin-top: 10px; */
+}
+
+.activenav {
+  border-bottom: 2px solid #ff344d;
+}
+
+.menu-bars {
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
+}
+
+.nav-menu {
+  color: #060b26;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 850ms;
+}
+
+.nav-menu.active {
+  left: 0;
+  transition: 350ms;
+}
+
+.nav-text {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
+  list-style: none;
+  height: 60px;
+}
+.titles {
+  /* color: #fff; */
+  margin-left: 10px;
+}
+
+.nav-text a {
+  text-decoration: none;
+  color: #f5f5f5;
+  font-size: 18px;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
+}
+
+.nav-text a:hover {
+  background-color: #c4b5c0;
+}
+
+.nav-menu-items {
+  width: 100%;
+}
+
+.navbar .dropPosition{
+  position: absolute;
+  top: 68px;
+  z-index: 1000;
+  display: none;
+  transition: 0.3s;
+  padding-top: 20px;
+}
+.navbar .dropBox {
+  padding: 10px 0px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  overflow: hidden;
+}
+.navbar .dropBoxItem {
+  padding: 10px 30px;
+  transition: 0.3s;
+  display: block;
+  color: #000;
+  text-decoration: none;
+}
+
+.navbar .dropBox .p {
+  white-space: nowrap;
+}
+
+.navbar .drpBoxHover .dropBoxItem:hover {
+  background-color:  var(--lightPink) !important;
+}
+.navbar .drpBoxHover .setActive{
+  display: block !important;
+}
+
+.navbar-toggle {
+  /* background-color: #060b26; */
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+a.buttonwp {
+  color: black;
+}
+.nav-link {
+  display: flex !important;
+  align-items: center;
+}
+.hovernav {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+.hovernav:hover {
+  border-bottom: 2px solid #ff344d;
+}
+.logo_title {
+  color: #df1024 !important;
+  opacity: 0.7;
+  font-weight: 700 !important;
+  font-size: 19px !important;
+}
+.navbar {
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+}
+@media screen and (max-width: 1048px) {
+  .AccountAdress {
+    display: none;
+  }
+}
+@media screen and (max-width: 993px) {
+  .nav-link {
+    display: block !important;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 993px) {
+  .navbar .drpBoxHover:hover .dropPosition {
+    opacity: 1;
+    display: block;
+  }
+}
+@media screen and (max-width: 992px) {
+  .navbar .dropPosition{
+    position: relative;
+    top : 0px;
+    z-index: 1000;
+    display: none;
+    transition: 0.3s;
+    padding-top: 10px;
+  }
+  .navbar .dropBox {
+    padding: 0px 0px;
+    box-shadow: none;
+    background-color: transparent !important;
+    overflow: hidden;
+  }
+  .navbar .dropBoxItem {
+    padding: 10px 0px;
+    transition: 0.3s;
+    display: block;
+    color: #000;
+    text-decoration: none;
+  }
+}
+@media screen and (max-width: 576px) {
+  .nav-link {
+    display: block !important;
+    margin-bottom: 15px !important;
+    align-items: center;
+  }
+  .navbar {
+    margin-top: 0px;
+  }
+}
+
+span {
+  margin-left: 16px;
+}
+@media screen and (max-width: 450px) {
+  .logo_title {
+    display: none !important;
+  }
+}

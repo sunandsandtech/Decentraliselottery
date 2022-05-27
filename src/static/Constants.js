@@ -1,0 +1,22 @@
+export const Path ={
+    root : '/',
+    login : '/login' , 
+    help : '/help' , 
+    about : '/aboutus' , 
+    register: '/registers', 
+    registerasorg:'/register',
+    singlelottery:'/lottery/:id', 
+    admin:'/admins',
+    adminorglist:'/admin/Agentslist',  
+    adminlotterylist:'/admin/lotterylist',  
+    adminlotterydetail:'/admin/lotterydetails/:id',  
+    org:'/bookiee', 
+    orgcreatelottery:'/bookie/createlottery', 
+    orglotterydetail:'/bookie/lotterydetails/:id',  
+    orgmylottery:'/bookie/mylottery',
+    alllottery:'/all-lottery',
+    result:'/lottery-result',
+    profile:'/profile',
+    Spinnerlottery:'/spinnerlottery',
+    Normallottery : '/normallottery'
+}

@@ -1,0 +1,31 @@
+.buy-card {
+    padding: 20px 20px;
+    box-shadow: 0 0 16px 1px rgba(139, 139, 139, 0.918);
+    border: 1px ;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+  .card-inner {
+    padding: 20px 20px;
+    box-shadow: 0 0 16px 1px rgb(212, 128, 128);
+    border: 1px solid #f1b9bc;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+
+  .outer-card {
+    border: 1px solid #f7a9ad;
+    padding: 20px 20px;
+    box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }

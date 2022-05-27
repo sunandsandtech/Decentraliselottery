@@ -1,0 +1,54 @@
+#CreateLottery .createbox {
+  padding: 20px;
+  max-width: 650px;
+  padding-bottom: 0px;
+  border-left: 5px red solid;
+  background-color: #ffe7e7;
+  margin: auto;
+  padding-left: 38px;
+  padding-right: 38px;
+}
+
+#CreateLottery .createlabel {
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 12px;
+}
+
+#CreateLottery .createheader {
+  color: #353a54;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+#CreateLottery .createfield {
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 0px !important;
+  margin-bottom: 15px;
+  border: none !important;
+  width: 100% !important;
+}
+#CreateLottery .createfield .react-datetime-picker__wrapper {
+  border: none !important;
+}
+#CreateLottery.react-datetime-picker__inputGroup__input--hasLeadingZero {
+  margin-left: -0.94em;
+}
+#CreateLottery .signupbtn {
+  width: 144px !important;
+  margin: 0px auto;
+}
+#CreateLottery .invalid-feedback {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 14px;
+  color: #dc3545;
+  line-height: 0px;
+}
+#CreateLottery select {
+  padding-right: 50px;
+}

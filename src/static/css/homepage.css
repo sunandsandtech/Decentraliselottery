@@ -1,0 +1,395 @@
+.Logo {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 34px;
+}
+
+.Logoorg {
+  padding-left: 15px;
+  padding-right: 15px;
+  vertical-align: middle;
+  /* color: #ffffff; */
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 34px;
+}
+
+/* .Logoorg:hover{
+ font-weight: 500;
+ text-decoration: none;
+} */
+.textstyle {
+  text-decoration: none;
+}
+
+@media (max-width: 991px) {
+  .navbar-expand-lg .navbar-nav {
+    flex-direction: column;
+    margin-left: 10px;
+  }
+}
+@media (min-width: 992px) {
+  .lottery-sectionbottomspace {
+    margin-bottom: 90px;
+  }
+}
+
+body {
+  color: var(--themebold) !important ;
+  background-color: transparent !important;
+  position: relative;
+  padding-bottom: 50px;
+}
+
+.register {
+  margin: auto;
+
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: middle;
+  /* display: inline-block; */
+  align-self: center;
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+.text-btn {
+  font-weight: 600;
+  text-transform: capitalize;
+  color: rgba(51, 55, 69, 0.8);
+  text-decoration: underline;
+  margin: auto;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.lottery-section {
+  margin-top: 42px;
+  /* padding-bottom: 55px; */
+}
+.lottery-section2 {
+  padding-bottom: 30px;
+}
+.lottery-card {
+  padding: 30px 30px 10px 30px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid #b74848;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  margin-bottom: 40px;
+}
+.lottery-card a {
+  transform: translateY(30px);
+  -webkit-transform: translateY(30px);
+  -moz-transform: translateY(30px);
+  -ms-transform: translateY(30px);
+  -o-transform: translateY(30px);
+}
+.amount {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ea2e49;
+  margin-top: 15px;
+}
+.lottery-card:hover {
+  box-shadow: 1.5px 2.598px 17.22px 3.78px rgba(241 0 38 / 36%),
+    -1.678px 2.487px 17.22px 3.78px rgba(51, 181, 247, 0.21);
+}
+.navbar-nav .nav-link:hover {
+  color: #ff1c40;
+
+  /* font-weight: 500; */
+}
+
+.section-bg {
+  background-color: #edf6fb;
+}
+
+.section-bgrd {
+  background-color: #dedede;
+}
+
+.section-padding {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.play {
+  padding: 30px 35px;
+  margin-bottom: 30px;
+  /* background-color: #ffffff; */
+  background: linear-gradient(to top left, #3366ff 0%, #ff3300 100%);
+  box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 50px 0px 50px 0px;
+  -webkit-border-radius: 50px 0px 50px 0px;
+  -moz-border-radius: 50px 0px 50px 0px;
+  -ms-border-radius: 50px 0px 50px 0px;
+  -o-border-radius: 50px 0px 50px 0px;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+.play:hover {
+  box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.2);
+}
+.overview-item {
+  padding: 30px 35px;
+  margin-bottom: 30px;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+.overview-item:hover {
+  box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.2);
+}
+.overview-item .content .title {
+  font-size: 28px;
+  font-weight: 500;
+  margin-top: 30px;
+}
+.overview-item .content p {
+  margin-top: 20px;
+}
+.overview-item .content a {
+  color: #333745;
+  text-decoration: underline;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  margin-top: 20px;
+}
+p,
+span,
+li {
+  margin: 0;
+  text-align: center;
+  color: #333745cc;
+  line-height: 1.7;
+  font-size: 16px;
+}
+.customcardbody {
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cmn-btn {
+  font-size: 20px;
+  text-transform: capitalize;
+  background-image: -webkit-gradient(
+    linear,
+    right top,
+    left top,
+    from(#ff344d),
+    to(#d2273c)
+  );
+  background-image: -webkit-linear-gradient(right, #ff344d, #d2273c);
+  background-image: -o-linear-gradient(right, #ff344d, #d2273c);
+  background-image: linear-gradient(to left, #ff344d, #d2273c);
+  text-align: center;
+  color: #ffffff;
+  padding: 10px 26px;
+  font-weight: 400;
+  border-radius: 999px;
+  -webkit-border-radius: 999px;
+  -moz-border-radius: 999px;
+  -ms-border-radius: 999px;
+  -o-border-radius: 999px;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  font-size: 16px;
+  cursor: pointer !important;
+  text-transform: uppercase;
+}
+.cmn-btn:hover {
+  cursor: pointer !important;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#ff344d),
+    to(#d2273c)
+  );
+  background-image: -webkit-linear-gradient(left, #ff344d, #d2273c);
+  background-image: -o-linear-gradient(left, #ff344d, #d2273c);
+  background-image: linear-gradient(to right, #ff344d, #d2273c);
+  color: #fff;
+  box-shadow: 1.5px 2.598px 17.22px 3.78px rgba(241 0 38 / 36%),
+    -1.678px 2.487px 17.22px 3.78px rgba(51, 181, 247, 0.21);
+}
+
+.jackpot-item a {
+  transform: translateY(30px);
+  -webkit-transform: translateY(30px);
+  -moz-transform: translateY(30px);
+  -ms-transform: translateY(30px);
+  -o-transform: translateY(30px);
+}
+.highlightb {
+  padding: 10px 7px;
+  background: rgb(9, 236, 130);
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 0px;
+}
+.box {
+  border: 2px solid #000;
+  border-radius: 20px;
+}
+.numbercircleoutline {
+  margin: 10px;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  border-radius: 45px;
+
+  padding-top: 9px;
+}
+.numbercirclecolor {
+  margin: 10px;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  border-radius: 45px;
+  background: #ff952f;
+  padding-top: 9px;
+}
+.bgImage {
+  /* background-image: url('../Images/ball.jpg'); */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 93vh;
+  justify-content: center;
+}
+.bold-focused {
+  font-weight: 600;
+  text-transform: capitalize;
+  color: rgba(51, 55, 69, 0.8);
+  text-decoration: underline;
+  margin: auto;
+  margin-top: -85px;
+  cursor: pointer;
+  font-size: x-large;
+}
+.register-section {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+.inactivebtn {
+  background-color: rgb(113 12 0) !important;
+  border-color: transparent !important;
+}
+.activebtn {
+  background-color: rgb(113 12 0) !important;
+  border-color: transparent !important;
+}
+.activebtn:focus {
+  background-color: rgb(113 12 0) !important;
+  border-color: transparent !important;
+  transform: scale(1.1);
+  box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.25) !important;
+}
+.inactivebtn:hover {
+  background-color: rgb(113 12 0) !important;
+  border-color: transparent !important;
+}
+/* question-section css start */
+.question-section .content p {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+.question-section .content .cmn-btn {
+  margin-top: 20px;
+}
+/* question-section css end */
+th {
+  color: "black";
+}
+
+.allLottery {
+  min-height: 100vh;
+}
+.seeallouter {
+  width: 100%;
+  position: relative;
+}
+.seeall {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #686868;
+}
+.whysectionimg {
+  color: #495057;
+  font-size: 23px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  position: absolute;
+  width: 82px;
+  left: 9%;
+  top: -98px;
+  /* height: 33px; */
+  background-color: #fff;
+}
+.whycard {
+  border: 2px solid var(--redBorder);
+  margin: 0 auto;
+  padding: 50px 25px 25px;
+  position: relative;
+  height: 280px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.whyimgposition {
+  position: relative;
+}
+.whyusdescription {
+  font-size: 16.12px;
+  font-weight: 400;
+  color: #686868;
+  font-family: "Mulish", "sans-serif";
+  text-align: left;
+  line-height: 24px;
+}
+.whyustitle {
+  font-size: 19.71px;
+  font-weight: 700;
+  color: #353a54;
+  font-family: "Mulish", "sans-serif";
+  text-align: left;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.imgwidth {
+  width: 110px;
+}
+.leftalignwhy {
+  text-align: left;
+  margin-top: 30px;
+}

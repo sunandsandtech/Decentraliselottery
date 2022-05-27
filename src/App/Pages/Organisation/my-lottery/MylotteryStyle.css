@@ -1,0 +1,155 @@
+.dp .dropdown {
+  margin-right: 18px;
+  margin-bottom: 8px;
+}
+.dp .dp-text {
+  font-weight: 500;
+  font-size: 14px;
+  color: #686868;
+  font-family: "Mulish", sans-serif;
+  margin-right: 28px;
+}
+.dp .btn-secondary {
+  width: 182px;
+  height: 41px;
+  background-color: var(--white) !important;
+  color: var(--darkGrey) !important;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  border: none;
+}
+.dp .btn-secondary:not(:disabled):not(.disabled).active,
+.btn-secondary:not(:disabled):not(.disabled):active,
+.show > .btn-secondary.dropdown-toggle {
+  color: var(--darkGrey) !important;
+  background-color: var(--white) !important;
+  border-color: var(--white) !important;
+}
+.dp .btn-secondary:hover {
+  color: var(--darkGrey) !important;
+  background-color: var(--white) !important;
+  border-color: var(--white) !important;
+}
+.dp .btn-secondary.focus,
+.btn-secondary:focus {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25) !important;
+}
+
+.my-lottery .card {
+  border: none;
+  margin-bottom: 37px;
+  cursor: pointer;
+}
+.my-lottery .outer-div {
+  border-left: 6px solid var(--redBorder);
+  padding: 6px 10px;
+  background: var(--lightPink);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.my-lottery .inner-div {
+  background: var(--white);
+  display: flex;
+  justify-content: space-between;
+}
+.my-lottery .left-div {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0px;
+}
+.my-lottery .right-div {
+}
+.my-lottery .lottery-text {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--darkGrey);
+  font-family: "Mulish", sans-serif;
+}
+.my-lottery .sub-text {
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--darkGrey);
+  font-family: "Mulish", sans-serif;
+}
+
+.my-lottery .amount {
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--darkGrey);
+  font-family: "Mulish", sans-serif;
+  margin-top: 0px;
+  margin-left: 7px;
+  white-space: nowrap;
+}
+
+.my-lottery .value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-lottery .playbutton {
+  width: 144px;
+  height: 41px;
+  background: linear-gradient(
+    45.74deg,
+    var(--redBorder) -27.41%,
+    var(--lightRed) 121.65%
+  );
+  border-radius: 15px;
+  border: none;
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--white);
+  margin-bottom: 15px;
+  margin-top: 18px;
+  outline: none;
+}
+
+.my-lottery .count {
+  margin-right: 6px;
+}
+.my-lottery .count-2 {
+  width: 61px;
+  height: 66px;
+  background: var(--redBorder);
+  border-radius: 0px 0px 39px 39px;
+  position: relative;
+  bottom: 117px;
+}
+.my-lottery .count-1 {
+  width: 61px;
+  height: 117px;
+  background: var(--lightRed);
+  border-radius: 0px 0px 39px 39px;
+}
+.my-lottery .count-text {
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  color: var(--white);
+  padding-top: 22px;
+  text-align: center;
+}
+.my-lottery .count2 {
+  padding-top: 74px;
+}
+
+.my-lottery .dates-div {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.my-lottery .date-text {
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--darkGrey);
+  width: 100px;
+}
+.dataimg {
+  width: 150px;
+  margin-top: -50px;
+}
