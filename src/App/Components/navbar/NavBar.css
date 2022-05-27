@@ -221,7 +221,7 @@ a.buttonwp {
 span {
   margin-left: 16px;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .logo_title {
     display: none !important;
   }

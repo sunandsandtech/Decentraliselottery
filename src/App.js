@@ -70,11 +70,7 @@ function App() {
             {net
               ? "Please Connect to Polygon main net (Network Id 137)"
               : "Please install an Ethereum-compatible browser or extension like MetaMask to use this dApp!"}{" "}
-            <p>
-              <a href="/help" style={{ color: "blue" }}>
-                Get Help
-              </a>
-            </p>
+     
           </Modal.Body>
           <Modal.Footer style={{ justifyContent: "flex-start" }}>
             <Button

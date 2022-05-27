@@ -156,11 +156,7 @@ const AdminNavBar = () => {
       >
         <Modal.Body>
           {content}
-          <p>
-            <a href="/help" style={{ color: "blue" }}>
-              Get Help
-            </a>
-          </p>
+    
         </Modal.Body>
         <Modal.Footer style={{ justifyContent: "center" }}>
           <Button
