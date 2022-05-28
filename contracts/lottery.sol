@@ -1,4 +1,5 @@
 pragma solidity ^0.8.7;
+// SPDX-License-Identifier: Unlicensed
 
 import "@chainlink/contracts/src/v0.8/VRFConsumerBase.sol";
 
@@ -77,7 +78,6 @@ library SafeMath {
 contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
     using SafeMath for uint256;
     bytes32 internal keyHash;
-    address public admin;
     uint256 public lotteryId = 1;
     uint256 public ownerId = 1;
     uint256 internal fee;
@@ -85,9 +85,9 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
     uint256 public lotteryCreateFee = 10;  
     uint256 public transferFeePerc = 10 ;   
     uint256 public tokenEarnPercent = 5;
-    bool public callresult;
     address public tokenAddress;
-    
+    address public admin;
+    bool public callresult;
     
     enum LotteryState {
         open,
@@ -103,7 +103,12 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
     struct OwnerData{
         bool active;
         address userAddress;
+        address referee;
         string name;
+        string phoneno;
+        uint256 dob;
+        string email;
+        string resiAddress;
         uint256 id;
         uint256 amountEarned;
         uint256 commissionEarned;
@@ -115,7 +120,6 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
         address userAddress;
         uint256 boughtOn;
         uint256[] numbersPicked;
-       
     }
 
     struct LotteryData {
@@ -127,6 +131,8 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
         uint256 drawTime;
         uint256 entryFee;
         uint256 totalPrize; // Total wining price.
+        uint256 minPlayers;
+        string name;
         address lotteryWinner;
         address ownerAddress;
         LotteryState status;
@@ -152,6 +158,9 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
     //Mapping  useraddress => amountspend
     mapping(address => uint256) public amountspend;
 
+    //Mapping  useraddress => amountspend
+    mapping(address => uint256) public refereeEarned;
+
     //Mapping  useraddress => amountwon
     mapping(address => uint256) public amountwon;
     
@@ -173,11 +182,15 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
     mapping (uint256 => mapping (address => uint256)) public lotteryTickets;
     mapping (string =>  bool) public TicketsList;
 
+    event RegisterBookie(uint256 indexed ownerId,address _owner,string _name,address _referee);
+
     event CreatedLottery(uint256 indexed lotteryId,uint256 entryfee,uint256 picknumbers,uint256 totalPrize, uint256 capacity, address indexed owner,uint256 startTime,uint256 indexed ownerid);
 
     event LotteryBought(uint256[]numbers, uint256 indexed lotteryId ,uint256 boughtOn, address indexed useraddress,uint256 drawOn,uint256 paid);
 
     event LotteryResult(address useraddressdata, uint256 indexed lotteryId , uint256 drawOn);
+
+    event UpdatedDrawtime( uint256 indexed lotteryId , uint256 drawOn);
 
     event WinnerPaid(address indexed useraddressdata ,uint256 indexed lotteryId,uint256 amountwon);
     
@@ -185,16 +198,18 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
 
     constructor(address _tokenAddress)
         VRFConsumerBase(
-            0x3d2341ADb2D31f1c5530cDC622016af293177AE0,
-            0xb0897686c545045aFc77CF20eC7A532E3120E0F1 // LINK Token
-        ) public
+            0x8C7382F9D8f56b33781fE506E897a4F1e2d17255,
+            0x326C977E6efc84E512bB9C30f76E30c160eD06FB // LINK Token
+        ) 
     {
-        keyHash = 0xf86195cf7690c55907b2b611ebb7343a6f649bff128701cc542f0569e2c549da;
+        keyHash = 0x6e75b569a01ef56d18cab6a8e71e6600d6ce853834d4a5748b720d06f878b3a4;
         fee = 	0.0001 * 10 ** 18; // 0.1 LINK
         admin = msg.sender;
         tokenAddress=_tokenAddress;
-        organisationbyaddr[msg.sender] = OwnerData({id:ownerId, userAddress:msg.sender,name:'Autobet', active:true, amountEarned:0, commissionEarned:0,minPrize:0,maxPrize:1* 10**25 });
-        organisationbyid[ownerId++] = OwnerData({id:ownerId,  userAddress:msg.sender,name:'Autobet', active:true, amountEarned:0 ,commissionEarned:0,minPrize:0,maxPrize:1* 10**25});
+        organisationbyaddr[msg.sender] = OwnerData({id:ownerId, userAddress:msg.sender,referee:address(0) ,name:'Autobet', phoneno:'', dob:0,resiAddress:'',
+         email:'autobetlottery@gmail.com', active:true,  amountEarned:0, commissionEarned:0,minPrize:0,maxPrize:1* 10**25 });
+        organisationbyid[ownerId++] = OwnerData({id:ownerId,  userAddress:msg.sender,referee:address(0),name:'Autobet', phoneno:'', dob:0,resiAddress:'',
+         email:'autobetlottery@gmail.com',  active:true, amountEarned:0 ,commissionEarned:0,minPrize:0,maxPrize:1* 10**25});
     }
     
     function setCallresult(bool _callresult) external
@@ -202,18 +217,21 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
          callresult= _callresult;
     }
 
-   function addOrganisation(address _owner,string memory _name, uint256 _minPrize,uint256 _maxPrize) external payable {
+   function addOrganisation(address _owner, address _referee,string memory _name,string memory _phoneno,uint256 _dob,string memory _email, string memory _resiAddress, uint256 _minPrize,uint256 _maxPrize) external payable {
         assert(_owner != address(0));
         uint256 median = ((_minPrize.add(_maxPrize)).mul(10**18)).div(2);
         uint256 fees = (median*bregisterFee).div(100);
         require(organisationbyaddr[_owner].userAddress == address(0),"Already registered" );
         require(fees ==msg.value,"Register Fee not matching");
-        organisationbyaddr[_owner] = OwnerData({id:ownerId, userAddress:_owner,name:_name, active:true, amountEarned:0, commissionEarned:0 ,minPrize:_minPrize,maxPrize:_maxPrize});
-        organisationbyid[ownerId++] = OwnerData({id:ownerId, userAddress:_owner,name:_name, active:true, amountEarned:0 ,commissionEarned:0,minPrize:_minPrize,maxPrize:_minPrize});
+        organisationbyaddr[_owner] = OwnerData({id:ownerId, userAddress:_owner,name:_name, referee:_referee , resiAddress:_resiAddress, active:true,  phoneno:_phoneno, dob:_dob, email:_email, amountEarned:0, commissionEarned:0 ,minPrize:_minPrize,maxPrize:_maxPrize});
+        organisationbyid[ownerId++] = OwnerData({id:ownerId, userAddress:_owner,name:_name, referee:_referee, resiAddress:_resiAddress, active:true, phoneno:_phoneno, dob:_dob, email:_email, amountEarned:0 ,commissionEarned:0,minPrize:_minPrize,maxPrize:_minPrize});
+        organisationbyaddr[admin].commissionEarned += msg.value;
+        emit RegisterBookie(ownerId,_owner,_name,_referee);
     }
-     
    
-    function createLottery(uint256 entryfee,
+    function createLottery(
+        string memory _name,
+        uint256 entryfee,
         uint256 picknumbers,
         uint256 totalPrize,
         uint256 startTime,
@@ -229,6 +247,7 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
         require(picknumbers<=capacity,"capacity is less");
         require(startTime >= block.timestamp,"Start time passed");
         require(startTime < endtime,"End time less than start time");
+        lottery[lotteryId].name = _name;
         lottery[lotteryId].lotteryId = lotteryId;
         lottery[lotteryId].entryFee = entryfee;
         lottery[lotteryId].pickNumbers = picknumbers;
@@ -240,8 +259,13 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
         lottery[lotteryId].drawTime = drawtime;
         lottery[lotteryId].ownerAddress = msg.sender;
         lottery[lotteryId].lotteryType = lottype;
+        lottery[lotteryId].minPlayers =  (totalPrize).div(entryfee) + (totalPrize).mul(10).div(entryfee).div(100) ;  
         orglotterydata[msg.sender].push(lotteryId);
-        emit CreatedLottery(lotteryId,entryfee,picknumbers,totalPrize,  capacity,  msg.sender, startTime, organisationbyaddr[msg.sender].id);
+        organisationbyaddr[admin].commissionEarned += (totalPrize * lotteryCreateFee).div(100);
+        if(organisationbyaddr[msg.sender].referee != address(0)){
+            refereeEarned[organisationbyaddr[msg.sender].referee] = refereeEarned[organisationbyaddr[msg.sender].referee] + totalPrize.div(100);
+        }
+        emit CreatedLottery(lotteryId, entryfee, picknumbers,totalPrize, capacity, msg.sender, startTime, organisationbyaddr[msg.sender].id);
         lotteryId++;
     }
     
@@ -249,7 +273,7 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
         LotteryData storage LotteryDatas = lottery[lotteryid];
         require(msg.value == LotteryDatas.entryFee,"Entry Fee not met");
         require(numbers.length == LotteryDatas.pickNumbers,"slots size not meet");
-        require(block.timestamp < LotteryDatas.endTime,"Time passed to buy");
+        require(LotteryDatas.status != LotteryState.resultdone,"Result done");
         require(!TicketsList[hash],"Number Already claimed");
         TicketsList[hash] = true;
         lotteryTickets[lotteryid][msg.sender] += 1;
@@ -258,14 +282,13 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
         organisationbyaddr[LotteryDatas.ownerAddress].amountEarned += msg.value;
         userlotterydata[msg.sender].push(lotteryid);
         lotterySales[lotteryid]++;
-        tokenearned[msg.sender] +=  ((LotteryDatas.entryFee * tokenEarnPercent).div(100)) ;
-        emit LotteryBought(numbers,lotteryid,block.timestamp,msg.sender,LotteryDatas.drawTime,LotteryDatas.entryFee);
+        tokenearned[msg.sender] += ((LotteryDatas.entryFee * tokenEarnPercent).div(100));
+        emit LotteryBought(numbers, lotteryid, block.timestamp, msg.sender, LotteryDatas.drawTime, LotteryDatas.entryFee);
     }
     
-     function buySpinnerLottery(uint256 numbers, uint256 lotteryid )public payable {
+    function buySpinnerLottery(uint256 numbers, uint256 lotteryid )public payable {
         LotteryData storage LotteryDatas = lottery[lotteryid];
         require(msg.value == LotteryDatas.entryFee,"Entry Fee not met");
-        require(block.timestamp < LotteryDatas.endTime,"Time passed to buy");
         require(LotteryDatas.status != LotteryState.resultdone,"Result done");
         uint256[] memory numbarray= new uint256[](1);
         numbarray[0]=numbers;
@@ -280,14 +303,32 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
         getWinners(lotteryid,numbers,msg.sender);
     }
     
+    function updateMinMax(uint256 _minPrize,uint256 _maxPrize) public onlyowner payable {
+        require(_maxPrize>0,'Cant be below zero');
+        require(_minPrize>0,'Cant be below zero');
+        uint256 median = ((_minPrize.add(_maxPrize)).mul(10**18)).div(2);
+        uint256 fees = (median*bregisterFee).div(100);
+        require(fees ==msg.value,"Register Fee not matching");
+        uint256 ids = organisationbyaddr[msg.sender].id;
+        organisationbyaddr[msg.sender].minPrize = _minPrize;
+        organisationbyaddr[msg.sender].maxPrize = _maxPrize;
+        organisationbyid[ids].minPrize =_minPrize;
+        organisationbyid[ids].maxPrize =_maxPrize;
+        organisationbyaddr[admin].commissionEarned += msg.value;
+    }
+
     function checkUpkeep(bytes calldata) external view override returns (bool upkeepNeeded, bytes memory result ) {
         upkeepNeeded =false;
         require(!callresult,"Another Result running");
         for(uint256 i=1;i< lotteryId;i++)
         {
-            if(lottery[i].lotteryType == LotteryType.pick&&lottery[i].drawTime<block.timestamp&&lottery[i].status!=LotteryState.resultdone){
-                if(lottery[i].Tickets.length>0){
-                    return(true,"");
+            if(lottery[i].lotteryType == LotteryType.pick){
+                if(lottery[i].status!=LotteryState.resultdone){
+                   if(lottery[i].minPlayers <=  lotterySales[i]){
+                        if(lottery[i].drawTime<block.timestamp){
+                            return(true,"");
+                        }
+                    }
                 }
             }
         }
@@ -296,17 +337,21 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
     function performUpkeep( bytes calldata ) external override {
         require(!callresult,"required call true");
         callresult= true;
-          for(uint256 i=1; i<lotteryId;i++)
+        for(uint256 i=1;i< lotteryId;i++)
         {
-               if(lottery[i].lotteryType == LotteryType.pick&&lottery[i].drawTime<block.timestamp&&lottery[i].status!=LotteryState.resultdone){
-                if(lottery[i].Tickets.length>0){
-                    getWinners(i);
+            if(lottery[i].lotteryType == LotteryType.pick){
+                if(lottery[i].status!=LotteryState.resultdone){
+                   if(lottery[i].minPlayers <=  lotterySales[i]){
+                        if(lottery[i].drawTime<block.timestamp){
+                           getWinners(i);
+                        }
+                    }
                 }
             }
         }
     }
 
-    function getWinners(uint256 i) internal  {
+    function getWinners(uint256 i) internal  {   
         require(LINK.balanceOf(address(this)) > fee, "Not enough LINK - fill contract with faucet");
         bytes32 _requestId = requestRandomness(keyHash, fee);
         requestIds[_requestId] = i;
@@ -319,7 +364,6 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
         spinNumbers[_requestId] = selectedNum;
         spinBuyer[_requestId] = buyer;
     }
-    
     
     function fulfillRandomness(bytes32 requestId, uint256 randomness) internal override {
         randomNumber[requestId] = randomness;
@@ -344,7 +388,6 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
             }
         }
     }
- 
     
     function paywinner( address useraddressdata , uint256 lotteryid,bytes32 requestId) public payable{
         require(requestIds[requestId]== lotteryid,"Lottery Id mismatch");
@@ -354,6 +397,7 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
             uint256 subtAmt = prizeAmt.mul(transferFeePerc).div(100);
             uint256 finalAmount = prizeAmt.sub(subtAmt);
             payable(useraddressdata).transfer(finalAmount);
+            organisationbyaddr[admin].commissionEarned += subtAmt;
             emit WinnerPaid(useraddressdata, lotteryid, finalAmount);
         }
         callresult=false;
@@ -379,7 +423,7 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
         return lotteries;
     }
     
-      function getLotteryNumbers(uint256 lotteryid) public view returns (uint256[] memory tickets,address[] memory useraddress)  {
+    function getLotteryNumbers(uint256 lotteryid) public view returns (uint256[] memory tickets,address[] memory useraddress)  {
         LotteryData storage LotteryDatas = lottery[lotteryid];
         address[] memory useraddressdata = new address[](LotteryDatas.Tickets.length );
         uint256[] memory userdata = new uint256[](LotteryDatas.Tickets.length * LotteryDatas.pickNumbers);
@@ -399,12 +443,25 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
         uint256 subtAmt = amountEarned.mul(transferFeePerc).div(100);
         uint256 finalAmount = amountEarned.sub(subtAmt);
         payable ((msg.sender)).transfer(finalAmount);
+        organisationbyaddr[admin].commissionEarned += subtAmt;
         organisationbyaddr[msg.sender].commissionEarned +=  finalAmount;
         organisationbyaddr[msg.sender].amountEarned=0;
     }
+
+    function withdrawAdmin() onlyAdmin external payable{
+        uint256 amountEarned = organisationbyaddr[admin].commissionEarned;
+        payable ((msg.sender)).transfer(amountEarned);
+        organisationbyaddr[admin].commissionEarned = 0;
+     }
+
+    function withdrawrefereecommission() external payable{
+        uint256 amountEarned = refereeEarned[msg.sender];
+        payable ((msg.sender)).transfer(amountEarned);
+        refereeEarned[msg.sender] =  0;
+    }
     
     
-    function withdrawETH()onlyAdmin external  payable{
+    function withdrawETH() onlyAdmin external  payable{
        payable(msg.sender).transfer(address(this).balance);
     }
     
@@ -420,7 +477,7 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
         tokenearned[msg.sender] = 0;
     }
     
-    function transferToken(uint256 amount,address to,address tokenAdd) external  {
+    function transferToken(uint256 amount,address to,address tokenAdd) onlyAdmin external  {
         require(amount<=IERC20(tokenAdd).balanceOf(address(this)),"low balance");
         IERC20(tokenAdd).transfer(to,amount);
     }
@@ -429,5 +486,4 @@ contract Autobet is VRFConsumerBase, KeeperCompatibleInterface{
         require(newAdmin != address(0));
         admin = newAdmin;
     }
-
 }
